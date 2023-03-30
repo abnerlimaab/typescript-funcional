@@ -1,4 +1,4 @@
-import { raizPositiva } from "../../src/functions/raizPositiva";
+import { raizPositiva } from "../../functions/raizPositiva";
 
 describe("raizPositiva", () => {
   it("should return the positive root of a quadratic equation", () => {

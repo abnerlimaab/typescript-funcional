@@ -1,4 +1,4 @@
-import { foo } from "../src/index";
+import { foo } from "..";
 
 it("foo", () => {
   expect(foo()).toBe("foo");

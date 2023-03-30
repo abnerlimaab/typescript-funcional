@@ -1,4 +1,4 @@
-import { fatorial } from "../../src/functions/fatorial";
+import { fatorial } from "../../functions/fatorial";
 
 describe("Fatorial", () => {
   it("should return 1 when n = 0", () => {
