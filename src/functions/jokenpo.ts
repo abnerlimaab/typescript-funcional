@@ -4,6 +4,12 @@ export enum Hand {
   Scissors = "Scissors",
 }
 
+export enum Winner {
+  Jogador1,
+  Jogador2,
+  Empate,
+}
+
 export const winAgainst = (hand: Hand) => {
   switch (hand) {
     case Hand.Stone:
@@ -24,4 +30,10 @@ export const lostTo = (hand: Hand) => {
     case Hand.Scissors:
       return Hand.Paper;
   }
+};
+
+export const result = (jogador1: Hand, jogador2: Hand): Winner => {
+  if (jogador1 === jogador2) return Winner.Empate;
+  if (winAgainst(jogador1) === jogador2) return Winner.Jogador2;
+  return Winner.Jogador1;
 };
