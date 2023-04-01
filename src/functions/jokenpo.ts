@@ -32,8 +32,13 @@ export const lostTo = (hand: Hand) => {
   }
 };
 
-export const result = (jogador1: Hand, jogador2: Hand): Winner => {
-  if (jogador1 === jogador2) return Winner.Empate;
-  if (winAgainst(jogador1) === jogador2) return Winner.Jogador2;
-  return Winner.Jogador1;
-};
+export const curryResult =
+  (jogador1: Hand) =>
+  (jogador2: Hand): Winner => {
+    if (jogador1 === jogador2) return Winner.Empate;
+    if (winAgainst(jogador1) === jogador2) return Winner.Jogador2;
+    return Winner.Jogador1;
+  };
+
+export const result = (jogador1: Hand, jogador2: Hand): Winner =>
+  curryResult(jogador1)(jogador2);
