@@ -1,4 +1,4 @@
-import { fatorial } from "../../functions/fatorial";
+import { fatorial, recursiveFatorial } from "../../functions/fatorial";
 
 describe("Fatorial", () => {
   it("should return 1 when n = 0", () => {
@@ -23,5 +23,9 @@ describe("Fatorial", () => {
 
   it("should return 120 when n = 5", () => {
     expect(fatorial(5)).toBe(120);
+  });
+
+  it("should return 720 when n = 6", () => {
+    expect(recursiveFatorial(6)).toBe(720);
   });
 });
