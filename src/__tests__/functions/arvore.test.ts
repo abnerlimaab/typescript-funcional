@@ -1,26 +1,31 @@
-import { Arvore, somarArvore, upperCaseArvore } from "../../functions/arvore";
+import {
+  Arvore,
+  somarArvore,
+  upperCaseArvore,
+  map,
+} from "../../functions/arvore";
 
 describe("Arvore", () => {
-  it("somarArvore", () => {
-    const arvore: Arvore<number> = {
+  const arvore: Arvore<number> = {
+    type: "no",
+    left: {
+      type: "folha",
+      value: 1,
+    },
+    right: {
       type: "no",
       left: {
         type: "folha",
-        value: 1,
+        value: 2,
       },
       right: {
-        type: "no",
-        left: {
-          type: "folha",
-          value: 2,
-        },
-        right: {
-          type: "folha",
-          value: 3,
-        },
+        type: "folha",
+        value: 3,
       },
-    };
+    },
+  };
 
+  it("somarArvore", () => {
     expect(somarArvore(arvore)).toBe(6);
   });
 
@@ -59,6 +64,27 @@ describe("Arvore", () => {
         right: {
           type: "folha",
           value: "C",
+        },
+      },
+    });
+  });
+
+  it("map", () => {
+    expect(map(arvore, (x) => x * 2)).toEqual({
+      type: "no",
+      left: {
+        type: "folha",
+        value: 2,
+      },
+      right: {
+        type: "no",
+        left: {
+          type: "folha",
+          value: 4,
+        },
+        right: {
+          type: "folha",
+          value: 6,
         },
       },
     });
